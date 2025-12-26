@@ -34,7 +34,7 @@ impl QueryBuilder<DefaultState, ()> {
             ..Default::default()
         };
         QueryBuilder {
-            data: data,
+            data,
             _state: PhantomData,
         }
     }
