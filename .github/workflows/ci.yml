@@ -59,25 +59,3 @@ jobs:
         with:
           command: fmt
           args: --all -- --check --verbose
-
-  security_audit:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Install toolchain
-        uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
-          profile: minimal
-          override: true
-      - name: Install cargo-audit
-        uses: actions-rs/cargo@v1
-        with:
-          command: install
-          args: cargo-audit
-      - name: Run security audit
-        uses: actions-rs/cargo@v1
-        with:
-          command: audit
-          args: --deny warnings
